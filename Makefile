@@ -1,8 +1,8 @@
-DIR_RISCV := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-DIR_RISCV := $(DIR_RISCV:/=)
+DIR_TOP := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+DIR_TOP := $(DIR_TOP:/=)
 
-DIR_QEMU := $(DIR_RISCV)/riscv-qemu
-DIR_SIFIVE := $(DIR_RISCV)/freedom-u-sdk
+DIR_QEMU := $(DIR_TOP)/riscv-qemu
+DIR_SIFIVE := $(DIR_TOP)/freedom-u-sdk
 
 REPO_QEMU := https://github.com/riscv/riscv-qemu
 REPO_SIFIVE := https://github.com/sifive/freedom-u-sdk
@@ -31,7 +31,7 @@ qemu-new:
 		git fetch origin pull/46/head:working; \
 		git checkout working; \
 		git submodule update --init pixman;\
-		git apply $(DIR_RISCV)/qemu.patch
+		git apply $(DIR_TOP)/qemu.patch
 	
 qemu-make:
 	@echo "Configuring qemu..."
@@ -47,9 +47,9 @@ sifive-new:
 	@cd $(DIR_SIFIVE); \
 		git reset --hard 5d38ed5d; \
 		git submodule update --init --recursive; \
-		git apply $(DIR_RISCV)/sifive.patch
+		git apply $(DIR_TOP)/sifive.patch
 	@cd $(DIR_SIFIVE)/riscv-pk; \
-		git apply $(DIR_RISCV)/pk.patch
+		git apply $(DIR_TOP)/pk.patch
 	
 sifive-make:
 	@echo "Building..."
