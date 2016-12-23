@@ -1,6 +1,6 @@
-# RISCV32B
+# RV32B-1
 
-To boot a RISCV64 linux kernel on a x86 machine.
+To boot a **RISCV64** linux kernel on a **x86** machine.
 
 ## Prerequisites
 
@@ -11,10 +11,14 @@ sudo apt-get install gcc libc6-dev pkg-config bridge-utils uml-utilities zlib1g-
 ## RUN
 
 ``` bash
-make qemu
-make sifive 
+make qemu-new
+make qemu-make
+make sifive-new
+make sifive-make
 make run
 ```
+
+You can skip qemu-new and sifive-new the second time you make. They are needed only once.
 
 Please note that the sifive step downloads lots of packages and takes a considerable amount of time.
 
