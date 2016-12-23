@@ -8,7 +8,7 @@ REPO_QEMU := https://github.com/riscv/riscv-qemu
 REPO_SIFIVE := https://github.com/sifive/freedom-u-sdk
 
 
-.PHONY: all, qemu-new, qemu-make, sifive-new, sifive-make, run, clean
+.PHONY: all, qemu-new, qemu-make, sifive-new, sifive-make, run
 
 all:
 	@echo
@@ -58,7 +58,3 @@ sifive-make:
 
 run:
 	@$(DIR_QEMU)/riscv64-softmmu/qemu-system-riscv64 -kernel $(DIR_SIFIVE)/work/riscv-pk/bbl -nographic
-
-clean:
-	@echo "Cleaning..."
-	@rm -rf $(DIR_QEMU) $(DIR_SIFIVE)
