@@ -13,8 +13,10 @@ sudo apt-get install gcc libc6-dev pkg-config bridge-utils uml-utilities zlib1g-
 ``` bash
 make qemu-new
 make qemu-make
+
 make sifive-new
 make sifive-make
+
 make run
 ```
 
