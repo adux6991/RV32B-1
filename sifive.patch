@@ -1,0 +1,10 @@
+diff --git a/Makefile b/Makefile
+index c5335f2..acc312a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-RISCV ?= $(CURDIR)/toolchain
++RISCV := $(CURDIR)/toolchain
+ PATH := $(RISCV)/bin:$(PATH)
+ 
+ srcdir := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
